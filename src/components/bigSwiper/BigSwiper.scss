@@ -1,0 +1,70 @@
+.swiper{
+  width: 1519.2px;
+  display: flex;
+  background-color: #F5F5F5;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  &__btn1, &__btn2{
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    outline: none;
+    border: none;
+    position: absolute;
+    
+  }
+  &__btn2{
+    left: 90%;
+    display: none;
+  }
+  &__btn1{
+    left: 5%;
+    display: none;
+    &--icon{
+      width: 26px;
+      height: 26px;
+    }
+  }
+  &__wrapper{
+    width: 1519.2px;
+    height: 790px;
+    background-color: cadetblue;
+    display: flex;
+    overflow: hidden;
+    
+    &--imgs{
+      width: 1519.2px;
+      height: 790px;
+      &__img{
+        width: 1519.2px;
+        height: 790px;
+      }
+    }
+  }
+  &__dots{
+    position: absolute;
+    z-index: 5;
+    width: 200px;
+    height: 30px;
+    display: flex;
+    top: 90%;
+    left: 50%;
+    &--items{
+      width: 20px;
+      height: 20px;
+      background-color: rgb(83, 83, 209);
+      border-radius: 50px;
+      margin-right: 20px;
+    }
+  }
+}
+.swiper:hover .swiper__btn1{
+  display: block;
+}
+.swiper:hover .swiper__btn2{
+  display: block;
+}
