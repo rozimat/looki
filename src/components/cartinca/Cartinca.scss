@@ -1,0 +1,30 @@
+.cartinca{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__wrapper{
+    width: 1300px;
+    display: flex;
+    gap: 20px;
+    &--item{
+      
+      &__img1{
+        width: 636px;
+        height: 360px;
+        
+      }
+      &__img2{
+        width: 306px;
+        height: 360px;
+        transition: all .3s linear;
+      }
+      &__img3{
+        width: 306px;
+        height: 360px;
+        transition: all .3s linear;
+      }
+    }
+  }
+}
