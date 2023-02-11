@@ -33,30 +33,30 @@ function Card() {
   
   
     return (
-        <div className='carts'>
-        <div ref={carouselWrapperEl}   className='cart'>
-          <button onClick={swipeRight} className='cart__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
+        <div className='cards'>
+        <div ref={carouselWrapperEl}   className='card'>
+          <button onClick={swipeRight} className='card__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
         {
           images.map((item)=>
-            <div  className='cart__item'>
-              <Link className='cart__item--link'>
+            <div  className='card__item'>
+              <Link className='card__item--link'>
                 <img 
-                className='cart__item--link__img' 
+                className='card__item--link__img' 
                 src="https://template.hasthemes.com/looki/looki/assets/img/product/10.png" 
-                alt="cart" />
+                alt="card" />
               </Link>
-              <div className='cart__item--wrapper'>
-                  <h2  className='cart__item--wrapper__heading'>All Natural Makeup Beauty Cosmetics</h2>
-                  {images.map((item=><> <span className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
-                <div className='cart__item--wrapper__div'>
-                  <h3 className='cart__item--wrapper__div--price'>$11.34</h3>
+              <div className='card__item--wrapper'>
+                  <h2  className='card__item--wrapper__heading'>All Natural Makeup Beauty Cosmetics</h2>
+                  {images.map((item=><> <span className='card__item--wrapper__span'> <BsFillStarFill/> </span></>))}
+                <div className='card__item--wrapper__div'>
+                  <h3 className='card__item--wrapper__div--price'>$11.34</h3>
                   <AiOutlineShoppingCart className='cart__item--wrapper__div--icon'/>
                 </div>
               </div>
             </div>
           )
         }
-        <button onClick={swipeLeft} className='cart__btn2'><AiOutlineArrowRight className='cart__btn--icon'/></button>
+        <button onClick={swipeLeft} className='card__btn2'><AiOutlineArrowRight className='cart__btn--icon'/></button>
         </div>
       </div>
   )

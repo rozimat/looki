@@ -5,6 +5,7 @@ import Delivery from './../delivery/Delivery';
 import Cartinca from '../cartinca/Cartinca';
 import Product from '../product/Product';
 import Products from '../products/Products';
+import CardBlogs from '../cardBlogs/CardBlogs';
 
 
 
@@ -17,6 +18,7 @@ function Home() {
       <Product/>
       <Cartinca/>
       <Products/>
+      <CardBlogs/>
     </>
   )
 }
