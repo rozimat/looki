@@ -47,7 +47,7 @@ function Footer() {
         </div>
         <div className='footer__t--div4'>
             <div className='footer__t--div4__wrapper'>
-              <h2 className='footer__t--div4__wrapper--heading'> {t("Newsletter")} </h2>
+              <h2 className='footer__t--div4__wrapper--heading'> {t("News Letter")} </h2>
               <span className='footer__t--div4__wrapper--span'></span>
             </div>
             <p  className='footer__t--div4__text'>
@@ -68,7 +68,7 @@ function Footer() {
           {
             carts.map((item)=>
               <Link>
-                <img src={item} alt="" />
+                <img src={item} alt="Carta" />
               </Link> 
             )
           }
