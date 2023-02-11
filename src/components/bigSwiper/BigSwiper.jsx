@@ -29,7 +29,7 @@ function BigSwiper() {
     useEffect(() => {
         setInterval(() => {
             setCurrentImage(currentImage => currentImage + 1)
-        }, 2000)
+        }, 3000)
     }, [])
   return (
         <div className="swiper">
@@ -50,8 +50,8 @@ function BigSwiper() {
                 {
                     images.map((dot, index) =>
                         <div  onClick={() => { setCurrentImage(index)}}
-                          style={currentImage === index ? { background: "black", transform: "scale(1.5)" } : null}
-                          className="swiper__dots--items" key={index}></div>
+                            style={currentImage === index ? { background: "black", transform: "scale(1.5)" } : null}
+                            className="swiper__dots--items" key={index}></div>
                     )
                 }
             </div>
