@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import Admin from "./components/admin/Admin";
 import Home from "./components/home/Home";
 import Cart from "./components/cart/Cart";
+import AdminPanel from "./components/adminPanel/AdminPanel";
 
 export const routes = createBrowserRouter([
   
@@ -46,18 +47,17 @@ export const routes = createBrowserRouter([
         path: "/contacts",
         element: <>contacts</>,
       },
-     
     ],
-    
-
-  },
-  {
-    path: "/",
-    element:<> footer</>,
   },
   {
     path: "/admin",
     element:<Admin/>,
+   
+  },
+  {
+    path: "/panel",
+    element:<AdminPanel/>,
+   
   },
  
 ]);

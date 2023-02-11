@@ -12,7 +12,7 @@ import Brands from '../brands/Brands';
 
 function Home() {
   return (
-    <>
+    <div className='home'>
       <BigSwiper/>
       <Delivery/>
       <Cartinca/>
@@ -22,7 +22,7 @@ function Home() {
       <CardBlogs/>
       <Brands/>
       
-    </>
+    </div>
   )
 }
 
