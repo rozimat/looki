@@ -1,19 +1,42 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import "./Cart.scss";
 import {Link} from "react-router-dom";
-import {AiOutlineShoppingCart} from "react-icons/ai";
+import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 import {BsFillStarFill} from "react-icons/bs";
 
 
 function Cart() {
+  const images=[1,2,3,4,5,5,6,7,8];
+  const carouselWrapperEl = useRef();
+  const [currentImage, setCurrentImage] = useState(0);
+  const swipeRight = () => {
+      if (currentImage < images.length - 1) {
+          setCurrentImage(currentImage => currentImage + 1)
+      }
+      else {
+          setCurrentImage(0)
+      }
+  }
+  const swipeLeft = () => {
+      if (currentImage > 0) {
+          setCurrentImage(currentImage => currentImage - 1)
+      }
+      else {
+          setCurrentImage(images.length - 1)
+      }
+  }
+  useEffect(() => {
+      carouselWrapperEl.current.scrollLeft = currentImage *1300;
+  }, [currentImage])
 
-  const a=[1,2,3,4,5];
+
   return (
       <div className='carts'>
-      <div className='cart'>
+      <div ref={carouselWrapperEl}   className='cart'>
+        <button onClick={swipeRight} className='cart__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
       {
-        a.map((item)=>
-          <div className='cart__item'>
+        images.map((item)=>
+          <div  className='cart__item'>
             <Link className='cart__item--link'>
               <img 
               className='cart__item--link__img' 
@@ -22,7 +45,7 @@ function Cart() {
             </Link>
             <div className='cart__item--wrapper'>
                 <h2  className='cart__item--wrapper__heading'>All Natural Makeup Beauty Cosmetics</h2>
-                {a.map((item=><> <span className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
+                {images.map((item=><> <span className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
               <div className='cart__item--wrapper__div'>
                 <h3 className='cart__item--wrapper__div--price'>$11.34</h3>
                 <AiOutlineShoppingCart className='cart__item--wrapper__div--icon'/>
@@ -31,9 +54,10 @@ function Cart() {
           </div>
         )
       }
+      <button onClick={swipeLeft} className='cart__btn2'><AiOutlineArrowRight className='cart__btn--icon'/></button>
       </div>
     </div>
   )
 }
 
-export default Cart
+export default Cart;

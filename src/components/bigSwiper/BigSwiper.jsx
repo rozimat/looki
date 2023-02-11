@@ -5,8 +5,6 @@ import images from "../../dummy-images.json";
 
 
 function BigSwiper() {
-
-  
   const carouselWrapperEl = useRef();
     const [currentImage, setCurrentImage] = useState(0);
     const swipeRight = () => {
@@ -31,7 +29,7 @@ function BigSwiper() {
     useEffect(() => {
         setInterval(() => {
             setCurrentImage(currentImage => currentImage + 1)
-        }, 3000)
+        }, 2000)
     }, [])
   return (
         <div className="swiper">
