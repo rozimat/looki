@@ -28,7 +28,7 @@ export const routes = createBrowserRouter([
           },
         ]
       },
-
+      
       {
         path: "/shop",
         element: <>Shops</>,
@@ -46,9 +46,15 @@ export const routes = createBrowserRouter([
         path: "/contacts",
         element: <>contacts</>,
       },
-    ]
+     
+    ],
+    
+
   },
- 
+  {
+    path: "/",
+    element:<> footer</>,
+  },
   {
     path: "/admin",
     element:<Admin/>,

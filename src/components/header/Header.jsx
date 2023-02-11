@@ -6,6 +6,7 @@ import logo from "../../images/logo.png";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import "./Header.scss";
+import Footer from '../footer/Footer';
 
 
 
@@ -97,6 +98,7 @@ function Header() {
       </div>
     </div>
     <Outlet/>
+    <Footer/>
     </>
   )
 }
