@@ -13,31 +13,7 @@
   align-items: center;
   overflow: hidden;
   gap: 30px;
-  &__btn1{
-    left: 0%;
- 
-  }
-  &__btn2{
-    left: 0%;
-    &--icon{
-      width: 26px;
-      height: 26px;
-    }
-  }
-  &__btn1, &__btn2{
-    display: none;
-    z-index: 6;
-    width: 55px;
-    height: 55px;
-    border: none;
-    outline: none;
-    background-color:black;
-    color:#fff;
-    border-radius: 50%;
-    position: absolute;
-    cursor: pointer;
-    
-  }
+  
   &__item{
     width: 302px;
     height: 400px;
@@ -53,6 +29,16 @@
     &--wrapper{
       padding: 20px;
       &__div{
+        &--price{
+          &__link{
+            text-decoration: none;
+          }
+        }
+      }
+      &__link{
+        text-decoration: none;
+      }
+      &__div{
         display: flex;
         align-items:center;
         justify-content: space-between;
@@ -65,4 +51,5 @@
       }
     }
   }
+
 }

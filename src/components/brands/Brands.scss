@@ -1,0 +1,22 @@
+.brands{
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 400px;
+  background-color: #fff;
+  &__wrapper1{
+    width: 100%px;
+    height: 141px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+  }
+  &__wrapper2{
+    width: 1300px;
+    height: 141px;
+    border-top: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -51,7 +51,7 @@ function Fashion() {
                   <h2  className='fashion__item--wrapper__heading'> {t("This is first Post For Blog")} </h2>
                 <div className='fashion__item--wrapper__div'>
                   <h3 className='fashion__item--wrapper__div--price'> {t("Posted by ")}
-                  <Link className='fashion__item--wrapper__div--price__limk'> {t("Has Teach")} </Link> {t("Nov 2023")} 
+                  <Link className='fashion__item--wrapper__div--price__link'> {t("Has Teach")} </Link> {t("Nov 2023")} 
                   </h3>
                 </div>
               </div>
