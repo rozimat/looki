@@ -28,7 +28,7 @@ function Admin() {
     function submitValue(e){
       e.preventDefault();
       if (values.login ===checkLogin &&  values.parol ===checkPassword){
-        navigate("/panel");
+        navigate("/adminpanel");
 
       }
       else{
