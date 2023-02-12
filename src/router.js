@@ -1,12 +1,13 @@
 import {createBrowserRouter} from "react-router-dom";
 import Header from "./components/header/Header";
-
+import Admin from "./components/admin/Admin";
+import AdminPanel from "./components/adminPanel/AdminPanel";
 import Home from "./components/home/Home";
 import Cart from "./components/cart/Cart";
-
+import Pratect from "./components/protected/Pratect";
 
 export const routes = createBrowserRouter([
-  
+
   {
     path: "/",
     element:<Header/>,
@@ -47,8 +48,20 @@ export const routes = createBrowserRouter([
         path: "/contacts",
         element: <>contacts</>,
       },
+    
     ],
   },
-
- 
+  {
+    path: "/admin",
+    element: <Admin/>,
+  },
+  {
+    path: "/panel",
+    element:(
+    <Pratect>
+      <AdminPanel/>
+    </Pratect>
+    )
+   
+  }
 ]);

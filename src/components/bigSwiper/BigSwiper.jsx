@@ -31,6 +31,8 @@ function BigSwiper() {
             setCurrentImage(currentImage => currentImage + 1)
         }, 3000)
     }, [])
+
+   
   return (
         <div className="swiper">
             <button  className="swiper__btn1" onClick={swipeLeft}><FiArrowLeft className='swiper__btn1--icon'/></button>
