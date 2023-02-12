@@ -4,8 +4,10 @@ import Admin from "./components/admin/Admin";
 import AdminPanel from "./components/adminPanel/AdminPanel";
 import Home from "./components/home/Home";
 import Cart from "./components/cart/Cart";
+import Cart2 from "./components/cart/Cart2";
+import Cart3 from "./components/cart/Cart3";
+import Cart1 from "./components/cart/Cart1";
 import Pratect from "./components/protected/Pratect";
-
 export const routes = createBrowserRouter([
 
   {
@@ -17,16 +19,16 @@ export const routes = createBrowserRouter([
         element: <Home/>,
         children:[
           {
-            path: "/" ,
+            path: "/",
             element: <Cart/>,
           },
           {
             path: "/category2" ,
-            element: <>category 2</>,
+            element: <Cart/>,
           }, 
           {
             path: "/category3" ,
-            element: <>category 3</>,
+            element: <Cart/>,
           },
         ]
       },

@@ -3,12 +3,33 @@ import "./Cart.scss";
 import {Link} from "react-router-dom";
 import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 import {BsFillStarFill} from "react-icons/bs";
+import axios from 'axios';
 
 
 function Cart() {
-  const images=[1,2,3,4,5,5,6,7,8];
+  const images = [1,2,3,4,8];
+  const [ dataBase, setDataBase]= useState([]);
   const carouselWrapperEl = useRef();
   const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(()=>{
+    axios
+    .get("https://looki-b5741-default-rtdb.firebaseio.com/newproduct.json")
+    .then(({data})=>{
+      const  newData = Object.keys(data).map((item)=>{
+        return{
+          ...data[item],
+          id:item,
+        };
+      });
+      setDataBase(newData);
+    })
+    .catch((error)=>{
+      alert("Error in Fairbase's url")
+    })
+  },[]);
+  
+  
   const swipeRight = () => {
       if (currentImage < images.length - 1) {
           setCurrentImage(currentImage => currentImage + 1)
@@ -26,7 +47,7 @@ function Cart() {
       }
   }
   useEffect(() => {
-      carouselWrapperEl.current.scrollLeft = currentImage *1300;
+      carouselWrapperEl.current.scrollLeft = currentImage *300;
   }, [currentImage])
 
 
@@ -35,19 +56,20 @@ function Cart() {
       <div ref={carouselWrapperEl}   className='cart'>
         <button onClick={swipeRight} className='cart__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
       {
-        images.map((item)=>
+        dataBase.map((item)=>
+        
           <div  className='cart__item'>
             <Link className='cart__item--link'>
               <img 
               className='cart__item--link__img' 
-              src="https://template.hasthemes.com/looki/looki/assets/img/product/1.png" 
+              src={item.imagee} 
               alt="cart" />
             </Link>
             <div className='cart__item--wrapper'>
-                <h2  className='cart__item--wrapper__heading'>All Natural Makeup Beauty Cosmetics</h2>
+                <h2  className='cart__item--wrapper__heading'> {item.title} </h2>
                 {images.map((item=><> <span className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
               <div className='cart__item--wrapper__div'>
-                <h3 className='cart__item--wrapper__div--price'>$11.34</h3>
+                <h3 className='cart__item--wrapper__div--price'>${item.price}</h3>
                 <AiOutlineShoppingCart className='cart__item--wrapper__div--icon'/>
               </div>
             </div>

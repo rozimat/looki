@@ -39,7 +39,7 @@ function Fashion() {
           <button onClick={swipeRight} className='card__btn1'><AiOutlineArrowLeft className='fashion__btn--icon'/></button>
         {
           images.map((item)=>
-            <div  className='fashion__item'>
+            <div key={Math.random().toFixed(3)}  className='fashion__item'>
               <Link className='fashion__item--link'>
                 <img 
                 className='card__item--link__img' 

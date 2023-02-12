@@ -1,6 +1,5 @@
 import React from 'react'
 import "./Product.scss";
-import Cart from "../cart/Cart";
 import { Link, Outlet } from 'react-router-dom';
 import { useTranslation} from "react-i18next";
 

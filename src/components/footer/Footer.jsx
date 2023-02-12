@@ -67,7 +67,7 @@ function Footer() {
         <div className='footer__b--carts'>
           {
             carts.map((item)=>
-              <Link>
+              <Link key={Math.random().toFixed(2)}>
                 <img src={item} alt="Carta" />
               </Link> 
             )

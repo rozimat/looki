@@ -30,6 +30,7 @@ function Card() {
         carouselWrapperEl.current.scrollLeft = currentImage *1300;
     }, [currentImage])
     
+    
   
   
     return (
@@ -38,7 +39,7 @@ function Card() {
           <button onClick={swipeRight} className='card__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
         {
           images.map((item)=>
-            <div  className='card__item'>
+            <div key={ Math.random(100000000).toFixed(2)}   className='card__item'>
               <Link className='card__item--link'>
                 <img 
                 className='card__item--link__img' 

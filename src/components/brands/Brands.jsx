@@ -10,12 +10,12 @@ function Brands() {
       <div className='brands__wrapper1'>
         <div className='brands__wrapper2'>
           {
-            logotip.map((item, index)=>
-              <>
-                <Link className='brands__wrapper--link' key={index}>
+            logotip.map((item)=>
+              <div key={Math.random().toFixed(4)}>
+                <Link className='brands__wrapper--link' >
                   <img className='brands__wrapper--link__img' src={item} alt="Brands" />
                 </Link>
-              </>
+              </div>
             )
           }
         </div>
