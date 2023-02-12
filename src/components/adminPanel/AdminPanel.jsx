@@ -1,36 +1,54 @@
-import React, {useState} from 'react'
+import React, {useState , useRef} from 'react'
 import {useTranslation} from "react-i18next";
 import "./AdminPanel.scss";
+import axios from 'axios';
+
+
 
 function AdminPanel() {
+
   const {t} = useTranslation();
-  const [details, setDetails] = useState([{
+  const [ formValue, setFormValue]= useState({
     category: "",
     img: "",
     title: "",
     rate: "",
     price: "",
-
-  }
-])
-
-  const hendleChange = (e)=>{
-    setDetails((prev)=>{
+  })
+  const getValuesInput=(e)=>{
+    setFormValue((prev)=>{
       return{
         ...prev,
-        [e.terget.name] : e.target.value,
+        [e.target.name]: e.target.value,
       }
     })
-    
   }
- 
+  const getDataSendToServar = (e)=>{
+    e.preventDefault();
+    const data={
+      category: formValue.category,
+      img: formValue.img,
+      title: formValue.title,
+      rate: formValue.rate,
+      price: formValue.price,
+      
+    }
+    axios.post("https://looki-b5741-default-rtdb.firebaseio.com/looki.json",
+    data)
+    .then((res)=>{
+      console.log(res);
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
   return (
     <div className='panel'>
       <div className='panel__wrapper'>
-        <form  className='panel__wrapper--form' >
+        <form onSubmit={getDataSendToServar}  className='panel__wrapper--form' >
         <div className='panel__wrapper--form__items'>
           <label>{t("Caregory")}</label>
-            <select onChange={hendleChange} name="caregory">
+            <select onChange={getValuesInput} name="category">
               <option value="new product">New Product</option>
               <option value="onsole">Onsole</option>
               <option value="onsole">Onsole</option>
@@ -38,19 +56,19 @@ function AdminPanel() {
           </div>
           <div className='panel__wrapper--form__items'>
             <label> {t("Link images table")} </label>
-            <input  type="text" placeholder={t("Enter link")} onChange={hendleChange} name="img"/>
+            <input  type="text" placeholder={t("Enter link")} nema="img"  onChange={getValuesInput}/>
           </div>
           <div className='panel__wrapper--form__items'>
             <label> {t("Title table")} </label>
-            <input   type="text" placeholder={t("Enter title")} onChange={hendleChange} name="title"/>
+            <input   type="text" placeholder={t("Enter title")} name="title"  onChange={getValuesInput} />
           </div>
           <div className='panel__wrapper--form__items'>
             <label> {t("reiting table")} </label>
-            <input  type="number" placeholder={t("Enter reiting")} onChange={hendleChange} name="rate"/>
+            <input  type="number" placeholder={t("Enter reiting")} name="rate" onChange={getValuesInput} />
           </div>
           <div className='panel__wrapper--form__items'>
             <label> {t("Price table")} </label>
-            <input    placeholder={t("Enter price")} type="number" onChange={hendleChange} name="price"/>
+            <input    placeholder={t("Enter price")} type="number"  name="price"  onChange={getValuesInput}/>
           </div>
           <div className='panel__wrapper--form__items'>
             <button className='panel__wrapper--form__items--button' type="submit"> {t("Save")} </button>

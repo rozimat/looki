@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 import Header from "./components/header/Header";
 import Admin from "./components/admin/Admin";
 import AdminPanel from "./components/adminPanel/AdminPanel";
@@ -56,12 +56,10 @@ export const routes = createBrowserRouter([
     element: <Admin/>,
   },
   {
-    path: "/panel",
-    element:(
-    <Pratect>
-      <AdminPanel/>
-    </Pratect>
-    )
+    path: "/adminpanel",
+    element:
+ <AdminPanel/>,
+    
    
   }
 ]);
