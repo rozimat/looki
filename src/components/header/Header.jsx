@@ -6,10 +6,12 @@ import logo from "../../images/logo.png";
 import {useTranslation} from "react-i18next";
 import "./Header.scss";
 import Footer from '../footer/Footer';
+import { useSelector} from "react-redux";
 
 
 
 function Header() {
+  const { quantity}= useSelector((state)=>state.cart);
   const {t, i18n} = useTranslation();
   const languageChanger=(e)=>{
     i18n.changeLanguage(e.target.value);
@@ -84,7 +86,7 @@ function Header() {
 
           <Link to='/carts' className='header__b--carts__nested'>
             <AiOutlineShopping className='header__b--carts__nested--icon'/>
-            <p className='header__b--carts__nested--p'>0</p>
+            <p className='header__b--carts__nested--p'> {quantity} </p>
           </Link>
           
         </div>

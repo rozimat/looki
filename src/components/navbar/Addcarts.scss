@@ -8,6 +8,7 @@
   background-color: #fff;
   top: 130px;
   &__t{
+    margin-top: 60px;
     width: 100%;
     height: 400px;
     background-color: 
@@ -58,6 +59,11 @@
       &--wrapBootm{
         display: flex;
         flex-direction: column;
+        &__wrap{
+          width: 100%;
+          height: 700px;
+          overflow-y: auto;
+        }
         &>ul{
           margin-top: 30px;
           display: flex;
@@ -81,8 +87,11 @@
     }
     &--b{
       width: 100%;
-      height: 35%;
-      background-color: red;
+      height: 20%;
+      margin-top: 150px;
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid black;
     }
   }
 }
@@ -92,9 +101,9 @@
   align-items:center;
   width: 1300px;
   height: 200px;
-  background-color: brown;
+  background-color: rgb(180, 171, 171);
   padding: 10px;
-  
+  margin-bottom: 10px;
   &__link{
     &--img{
       width: 180px;
@@ -105,6 +114,7 @@
   &__text{
     width: 250px;
     margin-left: 20px;
+    overflow: hidden;
   }
   &__button{
     width: 100px;
@@ -116,13 +126,13 @@
     outline: none;
     border: none;
     background-color: blue;
-
+    margin-left: 50px;
   }
   &__wrapper{
     margin-left: 100px;
     display: flex;
     align-items: center;
-    
+
     &--btn{
       margin-left: 150px;
       background-color: #000;

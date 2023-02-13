@@ -5,8 +5,17 @@ import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "re
 import {BsFillStarFill} from "react-icons/bs";
 import axios from 'axios';
 import {v4 as uuidv4} from "uuid";
+import {useDispatch} from "react-redux";
+import cartSlice from '../../store/sliceReduc';
+
+
 
 function Cart2() {
+
+  const {addToCart } = cartSlice.actions;
+  const dispatch = useDispatch();
+
+
   const images = [1,2,3,4,8];
   const [ dataBase, setDataBase]= useState([]);
   const carouselWrapperEl = useRef();
@@ -69,7 +78,7 @@ function Cart2() {
                 {images.map((item=><> <span key={ images} className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
               <div className='cart__item--wrapper__div'>
                 <h3 className='cart__item--wrapper__div--price'>${item.price}</h3>
-                <AiOutlineShoppingCart className='cart__item--wrapper__div--icon'/>
+                <button onClick={()=>dispatch(addToCart(item))}  className='cart__item--wrapper__div--icon'> <AiOutlineShoppingCart/></button>
               </div>
             </div>
           </div>

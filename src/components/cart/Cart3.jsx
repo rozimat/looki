@@ -5,9 +5,12 @@ import {Link} from "react-router-dom";
 import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 import {BsFillStarFill} from "react-icons/bs";
 import axios from 'axios';
-
+import {useDispatch} from "react-redux";
+import cartSlice from '../../store/sliceReduc';
 
 function Cart3() {
+  const {addToCart } = cartSlice.actions;
+  const dispatch = useDispatch();
   const images = [1,2,3,4,8];
   const [ dataBase, setDataBase]= useState([]);
   const carouselWrapperEl = useRef();
@@ -28,7 +31,7 @@ function Cart3() {
     .catch((error)=>{
       alert("Error in Fairbase's url")
     })
-  },[]);
+  },[dataBase]);
   
   
   const swipeRight = () => {
@@ -71,7 +74,7 @@ function Cart3() {
                 {images.map((item=><> <span key={uuidv4()} className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
               <div className='cart__item--wrapper__div'>
                 <h3 className='cart__item--wrapper__div--price'>${item.price}</h3>
-                <AiOutlineShoppingCart className='cart__item--wrapper__div--icon'/>
+               <button  onClick={()=>dispatch(addToCart(item))}  className='cart__btn2' className='cart__item--wrapper__div--icon'> <AiOutlineShoppingCart /></button>
               </div>
             </div>
           </div>

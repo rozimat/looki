@@ -4,8 +4,16 @@ import { GrFormNext } from "react-icons/gr";
 import {AiOutlineDelete, AiOutlinePlus,AiOutlineMinus} from "react-icons/ai";
 import { useTranslation } from "react-i18next";
 import "./Addcarts.scss";
+import { useSelector} from "react-redux";
+import { useDispatch} from "react-redux";
+import cartSlice from '../../store/sliceReduc';
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const {removeCart } = cartSlice.actions;
+  const {cartItems, caetTotalAmount}= useSelector((state)=>state.cart);
+
+
   const  { t} = useTranslation();
   return (
     <div className='addCart'>
@@ -34,29 +42,38 @@ function Navbar() {
               <li> {t("Action")} </li>
               <li> {t("Checkout")} </li>
             </ul>
-            <div className='addCart__b--t--wrap'>
-              <div className='carta'>
-                <Link className='carta__link'>
-                  <img className='carta__link--img' src="https://picsum.photos/200/300" alt="" />
-                </Link>
-                <p className='carta__text'>Lorem ipsum, dolor sit amet consectetur</p>
-                <button className='carta__button'> In satick</button>
-                <div className='carta__wrapper'>
-                  <span className='carta__wrapper--count'>1</span>
-                  <div className='carta__wrapper--wrap'>
-                    <button> <AiOutlinePlus/></button>
-                    <button> <AiOutlineMinus/></button>
+            <div className='addCart__b--t--wrapBootm__wrap'>
+              { 
+                cartItems.map((item)=>
+                  <div className='carta'>
+                    <Link className='carta__link'>
+                      <img className='carta__link--img' src={item.imagee} alt="" />
+                    </Link>
+                    <p className='carta__text'> {item.title }</p>
+                    <button className='carta__button'> In satick</button>
+                    <div className='carta__wrapper'>
+                      <span className='carta__wrapper--count'> {1}</span>
+                      <div className='carta__wrapper--wrap'>
+                        <button> <AiOutlinePlus/></button>
+                        <button> <AiOutlineMinus/></button>
+                      </div>
+                      <p className='carta__wrapper--price'>${item.price}</p>
+                      <AiOutlineDelete onClick={()=>dispatch(removeCart(item.id))}  className='carta__wrapper--trash'/>
+                      <button className='carta__wrapper--btn'> Add To Cart </button>
+                    </div>
                   </div>
-                  <p className='carta__wrapper--price'>$ 11.2</p>
-                  <AiOutlineDelete className='carta__wrapper--trash'/>
-                  <button className='carta__wrapper--btn'> Add To Cart </button>
-                </div>
-              </div>
+                )
+                
+              }
+
             </div>
           </div>
         </div>
         <div className='addCart__b--b'>
-          
+          <div className='total'>
+            <h2>Total costin</h2>
+            <h1>Total : $ {caetTotalAmount} </h1>
+          </div>
         </div>
       </div>
     </div>
