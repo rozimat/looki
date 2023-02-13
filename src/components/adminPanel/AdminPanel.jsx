@@ -1,4 +1,4 @@
-import React, {useState ,  useEffect} from 'react'
+import React, {useState} from 'react'
 import {useTranslation} from "react-i18next";
 import "./AdminPanel.scss";
 import axios from 'axios';
@@ -7,10 +7,6 @@ import axios from 'axios';
 
 function AdminPanel() {
   const {t} = useTranslation();
-  const [ data1, setData1] =useState({});
-  const [ data2, setData2] =useState({});
-  const [ data3, setData3] =useState({});
-
   const [ validStatus, setValidStatus]= useState(true);
   const [ invalidStatus, setInvalidStatus]= useState(true);
   const [ formValue, setFormValue]= useState({
@@ -28,50 +24,16 @@ function AdminPanel() {
       }
     })
   }
- useEffect(()=>{
-  if (formValue.category === "new product"){
-    setData1({
-      category: formValue.category,
-      imagee: formValue.imagee,
-      title: formValue.title,
-      rate: formValue.rate,
-      price: formValue.price,
-    })
-  }
-  else if (formValue.category === "onsole"){
-    setData2({
-      category: formValue.category,
-      imagee: formValue.imagee,
-      title: formValue.title,
-      rate: formValue.rate,
-      price: formValue.price,
-    })
-  }
-  else{
-    setData3({
-      category: formValue.category,
+  const getDataSendToServar = (e)=>{
+    e.preventDefault();
+    if ( formValue.category === "new product"){
+      const data={
+        category: formValue.category,
         imagee: formValue.imagee,
         title: formValue.title,
         rate: formValue.rate,
         price: formValue.price,
-    })
-  }
-  
- },[])
-
-
-
-  const getDataSendToServar = (e)=>{
-    e.preventDefault();
-      const data={
-        category: data1.category,
-        imagee: data1.imagee,
-        title: data1.title,
-        rate: data1.rate,
-        price: data1.price,
-
       }
-      console.log(data);
     axios.post("https://looki-b5741-default-rtdb.firebaseio.com/newproduct.json",
     data)
     .then((res)=>{
@@ -80,6 +42,41 @@ function AdminPanel() {
     .catch((res)=>{
       { res.status ===404 ? setInvalidStatus(true): setInvalidStatus(false)}
     })
+    }
+    else if (formValue.category === "onsole") {
+      const dataonsole={
+        category: formValue.category,
+        imagee: formValue.imagee,
+        title: formValue.title,
+        rate: formValue.rate,
+        price: formValue.price,
+      }
+    axios.post("https://looki-b5741-default-rtdb.firebaseio.com/onsole.json",
+    dataonsole)
+    .then((res)=>{
+      { res.status ===200 ? setValidStatus(true): setValidStatus(false)}
+    })
+    .catch((res)=>{
+      { res.status ===404 ? setInvalidStatus(true): setInvalidStatus(false)}
+    })
+    }
+    else {
+      const dataupcomin={
+        category: formValue.category,
+        imagee: formValue.imagee,
+        title: formValue.title,
+        rate: formValue.rate,
+        price: formValue.price,
+      }
+    axios.post("https://looki-b5741-default-rtdb.firebaseio.com/upcoming.json",
+    dataupcomin)
+    .then((res)=>{
+      { res.status ===200 ? setValidStatus(true): setValidStatus(false)}
+    })
+    .catch((res)=>{
+      { res.status ===404 ? setInvalidStatus(true): setInvalidStatus(false)}
+    })
+    }
   };
 
 
@@ -95,7 +92,7 @@ function AdminPanel() {
               <option> {t("Choose category")}  </option>
               <option value="new product"> {t("New Product")} </option>
               <option value="onsole"> {t("Onsole")} </option>
-              <option value="upcomin"> {t("Upcoming Products")} </option>
+              <option value="upcoming"> {t("Upcoming Products")} </option>
             </select>
           </div>
           <div className='panel__wrapper--form__items'>
