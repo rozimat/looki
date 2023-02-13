@@ -14,18 +14,26 @@ const cartSlice = createSlice({
   reducers:{
 
     addToCart(state, action){
-      state.quantity +=1;
-      state.cartItems.push(action.payload);
-      state.total = state.total+ parseInt(action.payload.price)
       
+      if (state.cartItems.find((item)=> item === action.payload)){
+        state.quantity +=1;
+        state.total = state.total+ parseInt(action.payload.price)
+      }
+      else{
+        state.quantity +=1;
+        state.cartItems.push(action.payload);
+        state.total = state.total+ parseInt(action.payload.price)
+      }
      /*const itemIndex= state.cartItems.findIndex( 
       item=> item.id === action.payload.id);
       if(itemIndex >= 0){
         state.cartItems[itemIndex].quantity +=1
+        state.total = state.total+ parseInt(action.payload.price)
       }
       else{
         const tempProduct = { ...action.payload, quantity: 1};
         state.cartItems.push(tempProduct);
+        state.total = state.total+ parseInt(action.payload.price)
       }*/
             
     },
@@ -33,6 +41,8 @@ const cartSlice = createSlice({
       state.total = state.total - parseInt(action.payload.price); // togri ishlavotti
       state.cartItems.indexOf(action.payload); //togri ishlavotti
       state.cartItems.splice(action.payload, 1); //togri ishlavotti
+      state.quantity -=1;
+
     }
 
   }
