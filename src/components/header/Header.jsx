@@ -11,7 +11,8 @@ import { useSelector} from "react-redux";
 
 
 function Header() {
-  const { quantity}= useSelector((state)=>state.cart);
+  const { quantity }= useSelector((state)=>state.cart);
+  
   const {t, i18n} = useTranslation();
   const languageChanger=(e)=>{
     i18n.changeLanguage(e.target.value);

@@ -11,7 +11,10 @@ import cartSlice from '../../store/sliceReduc';
 function Navbar() {
   const dispatch = useDispatch();
   const {removeCart } = cartSlice.actions;
-  const {cartItems, caetTotalAmount}= useSelector((state)=>state.cart);
+  const {cartItems}= useSelector((state)=>state.cart);
+  const {total}= useSelector((state)=>state.cart);
+  
+  
 
 
   const  { t} = useTranslation();
@@ -58,7 +61,7 @@ function Navbar() {
                         <button> <AiOutlineMinus/></button>
                       </div>
                       <p className='carta__wrapper--price'>${item.price}</p>
-                      <AiOutlineDelete onClick={()=>dispatch(removeCart(item.id))}  className='carta__wrapper--trash'/>
+                      <AiOutlineDelete onClick={()=>dispatch(removeCart(item))}  className='carta__wrapper--trash'/>
                       <button className='carta__wrapper--btn'> Add To Cart </button>
                     </div>
                   </div>
@@ -72,7 +75,7 @@ function Navbar() {
         <div className='addCart__b--b'>
           <div className='total'>
             <h2>Total costin</h2>
-            <h1>Total : $ {caetTotalAmount} </h1>
+            <h1>Total : $ {total} </h1>
           </div>
         </div>
       </div>
