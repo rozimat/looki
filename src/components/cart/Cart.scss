@@ -55,6 +55,9 @@
     }
     &--wrapper{
       padding: 20px;
+      &__heading{
+        overflow: hidden;
+      }
       &__div{
         display: flex;
         align-items:center;

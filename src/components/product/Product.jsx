@@ -16,8 +16,8 @@ function Product() {
         </div>
         <div className='product__wrapper--b'>
           <Link to="/" className='product__wrapper--b__link'> {t("New products")} </Link>
-          <Link to="/category2" className='product__wrapper--b__link'> {t("Onsale")} </Link>
-          <Link to="/category3" className='product__wrapper--b__link'> {t("Upcoming products")} </Link>
+          <Link to="/category=2" className='product__wrapper--b__link'> {t("Onsale")} </Link>
+          <Link to="/category=3" className='product__wrapper--b__link'> {t("Upcoming products")} </Link>
         </div>
       </div>
     </div>

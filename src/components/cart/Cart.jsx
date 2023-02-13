@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 import {BsFillStarFill} from "react-icons/bs";
 import axios from 'axios';
-
+import {v4} from "uuid";
 
 function Cart() {
   const images = [1,2,3,4,8];
@@ -57,8 +57,7 @@ function Cart() {
         <button onClick={swipeRight} className='cart__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
       {
         dataBase.map((item)=>
-        
-          <div  className='cart__item'>
+          <div key={v4()}  className='cart__item'>
             <Link className='cart__item--link'>
               <img 
               className='cart__item--link__img' 
@@ -67,7 +66,7 @@ function Cart() {
             </Link>
             <div className='cart__item--wrapper'>
                 <h2  className='cart__item--wrapper__heading'> {item.title} </h2>
-                {images.map((item=><> <span className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
+                {images.map((item=><> <span key={v4(1)}  className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
               <div className='cart__item--wrapper__div'>
                 <h3 className='cart__item--wrapper__div--price'>${item.price}</h3>
                 <AiOutlineShoppingCart className='cart__item--wrapper__div--icon'/>

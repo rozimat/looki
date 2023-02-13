@@ -1,9 +1,8 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet,Link } from 'react-router-dom';
 import {AiOutlineShopping, AiOutlineSearch, AiOutlineHeart,AiFillInstagram, AiOutlineSwap, AiOutlineFacebook,AiFillTwitterSquare, AiOutlineYoutube} from "react-icons/ai";
 import {RiAdminLine, RiPhoneLine} from "react-icons/ri";
 import logo from "../../images/logo.png";
-import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import "./Header.scss";
 import Footer from '../footer/Footer';
@@ -83,10 +82,10 @@ function Header() {
             <p className='header__b--carts__nested--p'>0</p>
           </div>
 
-          <div className='header__b--carts__nested'>
+          <Link to='/carts' className='header__b--carts__nested'>
             <AiOutlineShopping className='header__b--carts__nested--icon'/>
             <p className='header__b--carts__nested--p'>0</p>
-          </div>
+          </Link>
           
         </div>
         <div className='header__b--admin'>

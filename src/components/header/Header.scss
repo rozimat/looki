@@ -1,11 +1,15 @@
 .header{
-  //position: absolute;
+ 
+  position: fixed;
+  z-index: 10;
   width: 1519.2px;
   height: 130.8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #F5F5F5;
+  transition: 0.6s;
+
   &__t{
     background-color:  #111111;
     width: 100%;
@@ -68,9 +72,11 @@
   }
   // header bottom
   &__b{
+    
+    top: 70px;
     background-color: #F5F5F5;
     width: 1320px;
-    height: 70.8px;
+    height: 60.8px;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -4,10 +4,11 @@ import {useState, useEffect, useRef} from 'react';
 import {Link} from "react-router-dom";
 import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 import {BsFillStarFill} from "react-icons/bs";
-
+import { v4} from "uuid";
 
 function Card() {
-    const images=[1,2,3,4,5,5,6,7,8];
+  
+    const images=[1,2,3,4,5];
     const carouselWrapperEl = useRef();
     const [currentImage, setCurrentImage] = useState(0);
     const swipeRight = () => {
@@ -39,7 +40,7 @@ function Card() {
           <button onClick={swipeRight} className='card__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
         {
           images.map((item)=>
-            <div key={ Math.random(100000000).toFixed(2)}   className='card__item'>
+            <div key={v4()}   className='card__item'>
               <Link className='card__item--link'>
                 <img 
                 className='card__item--link__img' 
@@ -48,7 +49,7 @@ function Card() {
               </Link>
               <div className='card__item--wrapper'>
                   <h2  className='card__item--wrapper__heading'>All Natural Makeup Beauty Cosmetics</h2>
-                  {images.map((item=><> <span className='card__item--wrapper__span'> <BsFillStarFill/> </span></>))}
+                  {images.map((item=><>  <span key={item} className='card__item--wrapper__span'> <BsFillStarFill/> </span></>))}
                 <div className='card__item--wrapper__div'>
                   <h3 className='card__item--wrapper__div--price'>$11.34</h3>
                   <AiOutlineShoppingCart className='cart__item--wrapper__div--icon'/>

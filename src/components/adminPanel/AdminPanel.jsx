@@ -79,9 +79,6 @@ function AdminPanel() {
     }
   };
 
-
-
-
   return (
     <div className='panel'>
       <div className='panel__wrapper' style={ validStatus ? { border:"15px solid green" } : { border:"15px solid red" }  }>
