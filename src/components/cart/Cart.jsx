@@ -7,18 +7,12 @@ import axios from 'axios';
 import {v4} from "uuid";
 import {useDispatch} from "react-redux";
 import cartSlice from '../../store/sliceReduc';
-
-
-
 function Cart() {
   const {addToCart } = cartSlice.actions;
   const dispatch = useDispatch();
- 
-  const images = [1,2,3,4,8];
   const [ dataBase, setDataBase]= useState([]);
   const carouselWrapperEl = useRef();
   const [currentImage, setCurrentImage] = useState(0);
-
   useEffect(()=>{
     axios
     .get("https://looki-b5741-default-rtdb.firebaseio.com/newproduct.json")
@@ -35,29 +29,25 @@ function Cart() {
       alert("Error in Fairbase's url")
     })
   },[dataBase]);
-  
-  
   const swipeRight = () => {
       if (currentImage < images.length - 1) {
           setCurrentImage(currentImage => currentImage + 1)
       }
       else {
-          setCurrentImage(0)
+        setCurrentImage(0)
       }
   }
   const swipeLeft = () => {
       if (currentImage > 0) {
-          setCurrentImage(currentImage => currentImage - 1)
+        setCurrentImage(currentImage => currentImage - 1)
       }
       else {
-          setCurrentImage(images.length - 1)
+        setCurrentImage(images.length - 1)
       }
   }
   useEffect(() => {
-      carouselWrapperEl.current.scrollLeft = currentImage *300;
+    carouselWrapperEl.current.scrollLeft = currentImage *300;
   }, [currentImage])
-
-
   return (
       <div className='carts'>
       <div ref={carouselWrapperEl}   className='cart'>
@@ -87,5 +77,4 @@ function Cart() {
     </div>
   )
 }
-
 export default Cart;
