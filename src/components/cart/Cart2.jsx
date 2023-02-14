@@ -29,7 +29,7 @@ function Cart2() {
     })
   },[dataBase]);
   const swipeRight = () => {
-      if (currentImage < images.length - 1) {
+      if (currentImage < dataBase.length - 1) {
           setCurrentImage(currentImage => currentImage + 1)
       }
       else {
@@ -41,7 +41,7 @@ function Cart2() {
           setCurrentImage(currentImage => currentImage - 1)
       }
       else {
-          setCurrentImage(images.length - 1)
+          setCurrentImage(dataBase.length - 1)
       }
   }
   useEffect(() => {
