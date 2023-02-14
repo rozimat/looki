@@ -1,21 +1,17 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {v4 as uuidv4} from "uuid";
 import "./Cart.scss";
 import {Link} from "react-router-dom";
 import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
-import {BsFillStarFill} from "react-icons/bs";
 import axios from 'axios';
 import {useDispatch} from "react-redux";
 import cartSlice from '../../store/sliceReduc';
-
+import Star3 from './Star3';
 function Cart3() {
   const {addToCart } = cartSlice.actions;
   const dispatch = useDispatch();
-  const images = [1,2,3,4,8];
   const [ dataBase, setDataBase]= useState([]);
   const carouselWrapperEl = useRef();
   const [currentImage, setCurrentImage] = useState(0);
-
   useEffect(()=>{
     axios
     .get("https://looki-b5741-default-rtdb.firebaseio.com/upcoming.json")
@@ -32,8 +28,6 @@ function Cart3() {
       alert("Error in Fairbase's url")
     })
   },[dataBase]);
-  
-  
   const swipeRight = () => {
       if (currentImage < images.length - 1) {
           setCurrentImage(currentImage => currentImage + 1)
@@ -53,15 +47,12 @@ function Cart3() {
   useEffect(() => {
       carouselWrapperEl.current.scrollLeft = currentImage *300;
   }, [currentImage])
-
-
   return (
       <div className='carts'>
       <div ref={carouselWrapperEl}   className='cart'>
         <button onClick={swipeRight} className='cart__btn1'><AiOutlineArrowLeft className='cart__btn--icon'/></button>
       {
         dataBase.map((item)=>
-        
           <div key={item.id}  className='cart__item'>
             <Link className='cart__item--link'>
               <img 
@@ -71,7 +62,7 @@ function Cart3() {
             </Link>
             <div className='cart__item--wrapper'>
                 <h2  className='cart__item--wrapper__heading'> {item.title} </h2>
-                {images.map((item=><> <span key={uuidv4()} className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
+                <Star3 star={item.rate}/>
               <div className='cart__item--wrapper__div'>
                 <h3 className='cart__item--wrapper__div--price'>${item.price}</h3>
                <button  onClick={()=>dispatch(addToCart(item))}  className='cart__btn2' className='cart__item--wrapper__div--icon'> <AiOutlineShoppingCart /></button>
@@ -85,6 +76,5 @@ function Cart3() {
     </div>
   )
 }
-
 export default Cart3;
 

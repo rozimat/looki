@@ -1,4 +1,4 @@
-.carts{
+.carts {
   width: 100%;
   display: flex;
   align-items: center;
@@ -6,39 +6,38 @@
   background-color: #fff;
   margin-bottom: 100px;
 }
-.cart{
+.cart {
   width: 1300px;
   height: auto;
   display: flex;
   align-items: center;
   overflow: hidden;
   gap: 30px;
-  &__btn1{
+  &__btn1 {
     left: 5.5%;
- 
   }
-  &__btn2{
+  &__btn2 {
     left: 91.5%;
-    &--icon{
+    &--icon {
       width: 26px;
       height: 26px;
     }
   }
-  &__btn1, &__btn2{
+  &__btn1,
+  &__btn2 {
     display: none;
     z-index: 6;
     width: 55px;
     height: 55px;
     border: none;
     outline: none;
-    background-color:black;
-    color:#fff;
+    background-color: black;
+    color: #fff;
     border-radius: 50%;
     position: absolute;
     cursor: pointer;
-    
   }
-  &__item{
+  &__item {
     width: 302px;
     height: 458px;
     -webkit-box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
@@ -46,23 +45,23 @@
     box-shadow: -5px -5px 5px -5px rgba(34, 60, 80, 0.6) inset;
     display: flex;
     flex-direction: column;
-    &--link{
+    &--link {
       text-decoration: none;
-      &__img{
+      &__img {
         width: 300px;
         height: 300px;
       }
     }
-    &--wrapper{
+    &--wrapper {
       padding: 20px;
-      &__heading{
+      &__heading {
         overflow: hidden;
       }
-      &__div{
+      &__div {
         display: flex;
-        align-items:center;
+        align-items: center;
         justify-content: space-between;
-        &--icon{
+        &--icon {
           width: 35px;
           height: 35px;
           background-color: rgb(224, 216, 216);
@@ -70,16 +69,16 @@
           border-radius: 50%;
           cursor: pointer;
         }
-        &--icon:hover{
+        &--icon:hover {
           background-color: rgb(57, 29, 158);
         }
       }
-      &__span{
+      &__span {
         width: 20px;
         height: 20px;
         color: gold;
       }
-      &__heading{
+      &__heading {
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -87,9 +86,10 @@
       }
     }
   }
-
 }
-
-//
-.cart:hover .cart__btn1 {display: block;}
-.cart:hover .cart__btn2 {display: block;}
+.cart:hover .cart__btn1 {
+  display: block;
+}
+.cart:hover .cart__btn2 {
+  display: block;
+}

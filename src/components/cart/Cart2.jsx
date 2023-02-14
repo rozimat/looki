@@ -2,25 +2,16 @@ import React, {useState, useEffect, useRef} from 'react';
 import "./Cart.scss";
 import {Link} from "react-router-dom";
 import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
-import {BsFillStarFill} from "react-icons/bs";
 import axios from 'axios';
-import {v4 as uuidv4} from "uuid";
 import {useDispatch} from "react-redux";
 import cartSlice from '../../store/sliceReduc';
-
-
-
+import Star2 from './Star2';
 function Cart2() {
-
   const {addToCart } = cartSlice.actions;
   const dispatch = useDispatch();
-
-
-  const images = [1,2,3,4,8];
   const [ dataBase, setDataBase]= useState([]);
   const carouselWrapperEl = useRef();
   const [currentImage, setCurrentImage] = useState(0);
-
   useEffect(()=>{
     axios
     .get("https://looki-b5741-default-rtdb.firebaseio.com/onsole.json")
@@ -37,7 +28,6 @@ function Cart2() {
       alert("Error in Fairbase's url")
     })
   },[dataBase]);
-  
   const swipeRight = () => {
       if (currentImage < images.length - 1) {
           setCurrentImage(currentImage => currentImage + 1)
@@ -57,8 +47,6 @@ function Cart2() {
   useEffect(() => {
       carouselWrapperEl.current.scrollLeft = currentImage *300;
   }, [currentImage])
-
-
   return (
       <div className='carts'>
       <div ref={carouselWrapperEl}   className='cart'>
@@ -75,7 +63,7 @@ function Cart2() {
             </Link>
             <div className='cart__item--wrapper'>
                 <h2  className='cart__item--wrapper__heading'> {item.title} </h2>
-                {images.map((item=><> <span key={ images} className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
+                <Star2 star={item.rate}/>
               <div className='cart__item--wrapper__div'>
                 <h3 className='cart__item--wrapper__div--price'>${item.price}</h3>
                 <button onClick={()=>dispatch(addToCart(item))}  className='cart__item--wrapper__div--icon'> <AiOutlineShoppingCart/></button>
@@ -89,5 +77,4 @@ function Cart2() {
     </div>
   )
 }
-
 export default Cart2;
