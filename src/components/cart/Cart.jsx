@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import "./Cart.scss";
 import {Link} from "react-router-dom";
 import {AiOutlineShoppingCart, AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
-import {BsFillStarFill} from "react-icons/bs";
+import Star from './Star';
 import axios from 'axios';
 import {v4} from "uuid";
 import {useDispatch} from "react-redux";
@@ -73,7 +73,7 @@ function Cart() {
             </Link>
             <div className='cart__item--wrapper'>
                 <h2  className='cart__item--wrapper__heading'> {item.title} </h2>
-                {images.map((item=><> <span key={v4(1)}  className='cart__item--wrapper__span'> <BsFillStarFill/> </span></>))}
+               <Star className='cart__item--wrapper__span' rate={item.rate} />
               <div className='cart__item--wrapper__div'>
                 <h3 className='cart__item--wrapper__div--price'>${item.price}</h3>
                 <button onClick={()=>dispatch(addToCart(item))} className='cart__item--wrapper__div--icon'><AiOutlineShoppingCart /></button>
