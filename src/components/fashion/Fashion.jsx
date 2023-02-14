@@ -5,8 +5,6 @@ import {Link} from "react-router-dom";
 import { AiOutlineArrowLeft, AiOutlineArrowRight} from "react-icons/ai";
 import images from "../../dummy-fashion.json";
 import {useTranslation} from "react-i18next";
-
-
 function Fashion() {
   const  {t} = useTranslation();
     const carouselFashion = useRef();
@@ -30,9 +28,6 @@ function Fashion() {
     useEffect(() => {
       carouselFashion.current.scrollLeft = fashions *300;
     }, [fashions])
-    
-  
-  
     return (
         <div className='fashions'>
         <div ref={carouselFashion}   className='fashion'>
@@ -63,5 +58,4 @@ function Fashion() {
       </div>
   )
 }
-
 export default Fashion;

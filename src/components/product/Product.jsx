@@ -2,7 +2,6 @@ import React from 'react'
 import "./Product.scss";
 import { Link, Outlet } from 'react-router-dom';
 import { useTranslation} from "react-i18next";
-
 function Product() {
   const {t} = useTranslation();
   return (
@@ -25,5 +24,4 @@ function Product() {
     </>
   )
 }
-
 export default Product

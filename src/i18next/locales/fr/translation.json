@@ -52,5 +52,14 @@
   "Title table":"Table des titres",
   "Reiting table":"Tableau Reiting",
   "Price table":"Tableau des prix",
-  "Save":"Enregistrer"
+  "Save":"Enregistrer",
+  "Product Image":"Image du produit",
+  "Product Name":"Nom du produit",
+  "Stock Status":"Etat des stocks",
+  "Qty":"Qté",
+  "Price":"Prix",
+  "Action":"Action",
+  "Total costing":"Coût total",
+  "Buy":"Buy",
+  "Total : $":"Total : $"
 }

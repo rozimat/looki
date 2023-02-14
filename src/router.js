@@ -9,7 +9,6 @@ import Cart3 from "./components/cart/Cart3";
 import Pratect from "./components/protected/Pratect";
 import Navbar from './components/navbar/AddCarts';
 export const routes = createBrowserRouter([
-
   {
     path: "/",
     element:<Header/>,
@@ -61,8 +60,10 @@ export const routes = createBrowserRouter([
   {
     path: "/adminpanel",
     element:
- <AdminPanel/>,
-    
-   
+      (
+        <Pratect>
+          <AdminPanel/>
+        </Pratect>
+      ),
   }
 ]);

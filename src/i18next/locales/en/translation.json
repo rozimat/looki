@@ -58,7 +58,14 @@
   "Title table":"Title table",
   "Reiting table":"Reiting table",
   "Price table":"Price table",
-  "Save":"Save"
-
-
+  "Save":"Save",
+  "Product Image":"Product Image",
+  "Product Name":"Product Name",
+  "Stock Status":"Stock Status",
+  "Qty":"Qty",
+  "Price":"Price",
+  "Action":"Action",
+  "Total costing":"Total costing",
+  "Buy":"Buy",
+  "Total : $":"Total : $"
 }

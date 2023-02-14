@@ -1,8 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import "./Admin.scss";
 import { useNavigate } from 'react-router-dom';
-
-
 function Admin() {
   const navigate= useNavigate();
   const [error, setError] = useState(true);
@@ -14,6 +12,16 @@ function Admin() {
       },
     ]
   )
+  useEffect(()=>{
+    localStorage.setItem("logi", "12345678@gmail.com")
+    localStorage.setItem("paro", "12345678")
+  },[])
+  function sentTrueValue(){
+    localStorage.setItem("protect", true)
+  }
+  function sentFalseValue(){
+    localStorage.setItem("protect", false)
+  }
     const getValue=(e)=>{
       setValues((prev)=>{
         return{
@@ -22,23 +30,17 @@ function Admin() {
         }
       })
     }
-    const checkLogin = "12345678@gmail.com";
-    const checkPassword = "12345678";
-
+    const checkLogin = localStorage.getItem('logi');
+    const checkPassword = localStorage.getItem('paro');
     function submitValue(e){
       e.preventDefault();
       if (values.login ===checkLogin &&  values.parol ===checkPassword){
         navigate("/adminpanel");
-
       }
       else{
         setError(false);
-        
       }  
     }
-    
-   
-
   return (
     <div className='admin'> 
       <div className='admin__panel'>
@@ -52,13 +54,10 @@ function Admin() {
         <form onSubmit={submitValue}  className='admin__panel--r'>
           {! error ? <h2 style={{background: "red", padding: "20px"}}> Your parol or login is invalid</h2> : null}
           <label> Admin login </label>
-          <input type="text" onChange={getValue} name="login"/>
-
+          <input className='admin__panel--r__wrapper--email' type="text" onChange={getValue} name="login"/>
           <label> Admin parol</label>
-          <input type="text"  onChange={getValue} name="parol"/>
-
-
-          <button type='submit' className='admin__panel__button'>Enter</button>
+          <input className='admin__panel--r__wrapper--password' type="text"  onChange={getValue} name="parol"/>
+          <button type='submit' className='admin__panel--r__button'>Enter</button>
         </form>
       </div>
     </div>

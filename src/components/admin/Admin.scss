@@ -1,14 +1,15 @@
 .admin{
-  width: 1419px !important;
+  width: 100%;
   height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+  background-color: grey;
   &__panel{
     width: 1000px;
     height: 500px;
+    background-color: grey;
     border: 1px solid black;
     border-radius: 15px;
     overflow: hidden;
@@ -46,20 +47,30 @@
         gap: 10px;
         margin-bottom: 30px;
         &--email{
-          width: 200%;
+          width: 50%;
           height: 40px;
-          padding: 10px;
+          text-align: center;
+          border-radius: 5px;
+          background-color: rgb(208, 208, 216);
+          border: none;
+          outline: none;
+          margin-bottom: 20px;
+          cursor: pointer;
         }
         &--password{
-          width: 200%;
+          width: 50%;
           height: 40px;
-          padding: 10px;
+          text-align: center;
+          border-radius: 5px;
+          background-color: rgb(210, 210, 218);
+          border: none;
+          outline: none;
+          margin-bottom: 20px;
+          cursor: pointer;
         }
       }
     }
   }
-
-
 }
 .see__passwords{
   position: absolute;

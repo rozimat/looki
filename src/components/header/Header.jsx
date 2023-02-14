@@ -7,12 +7,8 @@ import {useTranslation} from "react-i18next";
 import "./Header.scss";
 import Footer from '../footer/Footer';
 import { useSelector} from "react-redux";
-
-
-
 function Header() {
-  const { quantity }= useSelector((state)=>state.cart);
-  
+  const {totalQuantity}= useSelector((state)=>state.cart);
   const {t, i18n} = useTranslation();
   const languageChanger=(e)=>{
     i18n.changeLanguage(e.target.value);
@@ -25,7 +21,6 @@ function Header() {
       localStorage.setItem("lang", "fr")
     }
   }
-
   return (
     <>
       <div className='header'>
@@ -79,17 +74,14 @@ function Header() {
             <AiOutlineSwap className='header__b--carts__nested--icon'/>
             <p className='header__b--carts__nested--p'>0</p>
           </Link>
-
           <div className='header__b--carts__nested'>
             <AiOutlineHeart className='header__b--carts__nested--icon'/>
             <p className='header__b--carts__nested--p'>0</p>
           </div>
-
           <Link to='/carts' className='header__b--carts__nested'>
             <AiOutlineShopping className='header__b--carts__nested--icon'/>
-            <p className='header__b--carts__nested--p'> {quantity} </p>
-          </Link>
-          
+            <p className='header__b--carts__nested--p'> {totalQuantity} </p>
+          </Link> 
         </div>
         <div className='header__b--admin'>
           <Link to="/admin" className='header__b--admin__link'>
@@ -104,5 +96,4 @@ function Header() {
     </>
   )
 }
-
 export default Header;

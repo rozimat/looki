@@ -7,9 +7,6 @@ import Product from '../product/Product';
 import Products from '../products/Products';
 import CardBlogs from '../cardBlogs/CardBlogs';
 import Brands from '../brands/Brands';
-
-
-
 function Home() {
   return (
     <div className='home'>
@@ -21,9 +18,7 @@ function Home() {
       <Products/>
       <CardBlogs/>
       <Brands/>
-      
     </div>
   )
 }
-
 export default Home

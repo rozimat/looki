@@ -4,19 +4,13 @@ import { GrFormNext } from "react-icons/gr";
 import {AiOutlineDelete, AiOutlinePlus,AiOutlineMinus} from "react-icons/ai";
 import { useTranslation } from "react-i18next";
 import "./Addcarts.scss";
-import { useSelector} from "react-redux";
-import { useDispatch} from "react-redux";
+import { useSelector, useDispatch} from "react-redux";
 import cartSlice from '../../store/sliceReduc';
-
 function Navbar() {
   const dispatch = useDispatch();
-  const {removeCart } = cartSlice.actions;
-  const {cartItems}= useSelector((state)=>state.cart);
+  const {removeCart, removeAll } = cartSlice.actions;
+  const {cartItems }= useSelector((state)=>state.cart);
   const {total}= useSelector((state)=>state.cart);
-  
-  
-
-
   const  { t} = useTranslation();
   return (
     <div className='addCart'>
@@ -66,21 +60,20 @@ function Navbar() {
                     </div>
                   </div>
                 )
-                
               }
-
             </div>
           </div>
         </div>
         <div className='addCart__b--b'>
           <div className='total'>
-            <h2>Total costin</h2>
-            <h1>Total : $ {total} </h1>
+            <h2 > {t("Total costing")} </h2>
+            <h1 >{t("Total : $")}  {total} </h1>
+            <button  onClick={()=>dispatch(removeAll())}> Remove all </button>
+            <button className='buy'> {t("Buy")} </button>
           </div>
         </div>
       </div>
     </div>
   )
 }
-
 export default Navbar

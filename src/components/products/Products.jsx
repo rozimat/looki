@@ -2,7 +2,6 @@ import React from 'react'
 import "./Products.scss";
 import Card from "../card/Card";
 import { useTranslation} from "react-i18next";
-
 function Products() {
   const {t} = useTranslation();
   return (
@@ -20,5 +19,4 @@ function Products() {
     </>
   )
 }
-
 export default Products;
